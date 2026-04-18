@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
@@ -7,6 +8,8 @@
     <title>Dev Portfolio | Built with Django</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="{% load static %}{% static 'js/email.js' %}"></script>
 </head>
 
 <body class="bg-slate-50 text-slate-900 selection:bg-indigo-100">
@@ -17,7 +20,7 @@
             <div class="hidden md:flex space-x-8 font-medium text-sm uppercase tracking-widest">
                 <a href="#projects" class="hover:text-indigo-600 transition">Projects</a>
                 <a href="#about" class="hover:text-indigo-600 transition">About</a>
-                <a href="mailto:your-email@example.com"
+                <a href="mailto:surajpatil9197@zohomail.in"
                     class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">Hire Me</a>
                 <a href="#appointment"
                     class="px-6 py-2 border-2 border-indigo-600 text-indigo-600 font-bold rounded-lg hover:bg-indigo-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg">Book
@@ -120,10 +123,35 @@
     <section id="appointment" class="py-20 bg-gradient-to-b from-indigo-50 to-slate-50">
         <div class="max-w-2xl mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Build Something Great?</h2>
-            <p class="text-xl text-slate-600 mb-12 leading-relaxed">Schedule a free 30-min consultation to discuss your Django project.</p>
+            <p class="text-xl text-slate-600 mb-12 leading-relaxed">Schedule a free 30-min consultation to discuss your
+                Django project.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://calendly.com/yourusername/30min" target="_blank" class="px-8 py-4 bg-indigo-600 text-white text-lg font-bold rounded-2xl hover:bg-indigo-700 transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1 duration-300">Book Free Call</a>
-                <a href="mailto:your-email@example.com?subject=Project%20Consultation" class="px-8 py-4 border-2 border-indigo-600 text-indigo-600 text-lg font-bold rounded-2xl hover:bg-indigo-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg">Email Me</a>
+
+                <a href="https://calendly.com/surajpatil9197-zohomail/website-creation" target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-8 py-4 bg-indigo-600 text-white text-lg font-bold rounded-2xl hover:bg-indigo-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                    📅 Book Free Call
+                </a>
+
+                <div class="flex flex-col items-center">
+                    <button id="showEmailBtn" onclick="showEmail()"
+                        class="px-8 py-4 border-2 border-indigo-600 text-indigo-600 text-lg font-bold rounded-2xl hover:bg-indigo-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg">
+                        📧 Show Email
+                    </button>
+
+                    <div id="emailReveal"
+                        class="mt-6 p-6 bg-gradient-to-br from-indigo-50 to-purple-50 border-2 border-indigo-200 rounded-3xl text-center hidden shadow-2xl max-w-md mx-auto">
+                        <div
+                            class="text-2xl font-black bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6">
+                            surajpatil9197@zohomail.in
+                        </div>
+                        <button onclick="copyEmail()"
+                            class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-2xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 text-lg">
+                            📋 Copy Email
+                        </button>
+                    </div>
+                </div>
+
             </div>
             <p class="mt-8 text-sm text-slate-500">No commitment required. Let's talk about your needs.</p>
         </div>
@@ -133,8 +161,8 @@
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <p class="text-sm italic">"Simplicity is the soul of efficiency."</p>
             <div class="flex gap-8 text-sm font-medium">
-                <a href="#" class="hover:text-white transition">LinkedIn</a>
-                <a href="#" class="hover:text-white transition">Twitter/X</a>
+                <a href="https://www.linkedin.com/in/suraj-singh-rajput-603679313"
+                    class="hover:text-white transition">LinkedIn</a>
                 <a href="#" class="hover:text-white transition">GitHub</a>
             </div>
             <p class="text-sm uppercase tracking-tighter">© 2026 Crafted with Django</p>

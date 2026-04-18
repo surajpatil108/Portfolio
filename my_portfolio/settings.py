@@ -68,6 +68,11 @@ TEMPLATES = [
     },
 ]
 
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "my_profile/static"]
+STATIC_ROOT = BASE_DIR / 'staticfiles'   
+
+
 WSGI_APPLICATION = 'my_portfolio.wsgi.application'
 
 
