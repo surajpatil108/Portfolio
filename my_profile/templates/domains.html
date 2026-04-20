@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Domains</title>
+    <link rel="stylesheet" href="{% static 'css/domains.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Our Domains</h1>
+        <p class="subtitle">Explore our expertise across key technology areas</p>
+        
+        <div class="domains-grid">
+            {% for domain in domains %}
+            <div class="domain-card">
+                <h2 class="domain-name">{{ domain.name }}</h2>
+                <p class="domain-desc">{{ domain.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
