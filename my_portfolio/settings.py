@@ -71,9 +71,22 @@ TEMPLATES = [
 ]
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "my_profile/static"]
-STATIC_ROOT = BASE_DIR / 'staticfiles'   
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Where collectstatic puts files
+
+
+# Static files (CRITICAL for production)
+STATICFILES_DIRS = [
+    BASE_DIR / "my_profile" / "static",  # Your app's static folder
+]
+
+# For development only (remove in production)
+# STATICFILES_DIRS = [BASE_DIR / "my_profile/static"]
+
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR.parent / 'media'
