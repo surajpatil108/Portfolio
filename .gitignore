@@ -3,6 +3,8 @@ venv/
 env/
 ENV/
 
+__pycache__/
+
 # Django
 *.log
 *.pot
@@ -17,6 +19,9 @@ media/
 # Environment variables
 .env
 *.env
+.env.local
+.env.*.local
+
 
 # IDE
 .vscode/
