@@ -107,16 +107,15 @@ TEMPLATES = [
 # Static files (CRITICAL for production)
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "my_profile" / "static",  # Your app's static folder
-]
+STATICFILES_DIRS = []
 
 # For development only (remove in production)
 # STATICFILES_DIRS = [BASE_DIR / "my_profile/static"]
-
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Where files go on Render
+STATIC_ROOT = BASE_DIR / "staticfiles"
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Where files go on Render
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.zoho.in'
@@ -179,6 +178,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
+
 
 
 # Default primary key field type
