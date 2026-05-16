@@ -28,8 +28,8 @@ load_dotenv()
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+# Security (production only)
+DEBUG = False  # Set to False in production
 
 # ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'portfolio-jxhn.onrender.com']
@@ -103,11 +103,10 @@ TEMPLATES = [
     },
 ]
 
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # Where collectstatic puts files
-
 
 # Static files (CRITICAL for production)
+STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     BASE_DIR / "my_profile" / "static",  # Your app's static folder
 ]
@@ -116,7 +115,7 @@ STATICFILES_DIRS = [
 # STATICFILES_DIRS = [BASE_DIR / "my_profile/static"]
 
 
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Where files go on Render
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -181,7 +180,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
