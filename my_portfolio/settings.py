@@ -129,7 +129,6 @@ DEFAULT_FROM_EMAIL = 'surajpatil9197@zohomail.in'
 
 
 MEDIA_URL = '/media/'
-# MEDIA_ROOT = BASE_DIR.parent / 'media'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 WSGI_APPLICATION = 'my_portfolio.wsgi.application'
