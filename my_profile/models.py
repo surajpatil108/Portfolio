@@ -12,7 +12,7 @@ class Project(models.Model):
     technologies = models.ManyToManyField(TechStack)
     github_link = models.URLField()
     live_demo = models.URLField(blank=True)
-    image = models.ImageField(upload_to='projects/')
+    image = models.ImageField(upload_to='projects/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

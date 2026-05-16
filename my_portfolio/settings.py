@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import cloudinary
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,8 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Load .env file
 load_dotenv()
-
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -32,7 +31,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'portfolio-jxhn.onrender.com']
 
 
 # Application definition
@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # 'django.contrib.staticfiles',
+
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     # 'debug_toolbar',
     'whitenoise.runserver_nostatic',  # Static files
     'my_profile'
@@ -61,6 +65,28 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'my_portfolio.urls'
+
+# 1. Read the full string from your environment
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+
+# If you have the long URL, you can just do this:
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+}
+
+# 3. Explicitly initialize the Cloudinary Python SDK fallback
+if CLOUDINARY_URL:
+    cloudinary.config(cloudinary_url=CLOUDINARY_URL)
+
+# Django 5.2 Storage Backend Setup Architecture 
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.StaticFilesStorage",
+    },
+}
 
 TEMPLATES = [
     {
@@ -90,6 +116,7 @@ STATICFILES_DIRS = [
 # STATICFILES_DIRS = [BASE_DIR / "my_profile/static"]
 
 
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -117,6 +144,8 @@ DATABASES = {
     }
 }
 
+
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
